@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg nav-justified navbar-light" style="background-color: #c4b0ef;">
+
+    <a class="navbar-brand">Fontaine sur Somme / Bibliothèque</a>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li routerLinkActive="active" class="nav-item" *ngIf="isAuth">
+        <a class="nav-link active" routerLink="books" >Livres</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item" *ngIf="isAuth">
+        <a class="nav-link active" routerLink="users">Lecteurs</a>
+      </li>
+    </ul>
+    <div class="d-flex">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+       <li routerLinkActive="active" *ngIf="!isAuth">
+          <a class="nav-link active" routerLink="auth/signin">Se connecter</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="!isAuth">
+          <a class="nav-link active" routerLink="auth/signup">Créer un compte</a>
+        </li>
+        <li>
+          <a (click)="onSignOut()" *ngIf="isAuth" style="cursor: pointer">Déconnexion</a>
+        </li>
+      </ul>
+    </div>
+
+</nav>
