@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Book} from "../models/Book.model";
 import {Subject} from "rxjs";
-import firebase from "firebase/compat";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -38,20 +37,6 @@ export class BooksService {
         this.books=data ? data : [];
         this.emitBooks();
       });
-  }
-
-  getBook(id:number){
-    return new Promise(
-      ((resolve, reject) => {
-        firebase.database().ref('/books/' + id).once('value').then(
-          (data)=>{
-            resolve(data.val());
-          }, (error)=>{
-            reject(error);
-          }
-        );
-      })
-    );
   }
 
   createNewBook(newBook: Book) {

@@ -11,7 +11,7 @@ export class AuthService {
   auth = firebase.getAuth();
 
   createNewUser(email: string, password: string) {
-    return new Promise(
+    return new Promise<void>(
       (resolve, reject) => {
         firebase.createUserWithEmailAndPassword(this.auth, email, password).then(
           ()=> {
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   signin(email: string, password: string) {
-    return new Promise(
+    return new Promise<void>(
       (resolve, reject) => {
         firebase.signInWithEmailAndPassword(this.auth, email, password).then(
           ()=> {
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   signOut(){
-    firebase.signOut(this.auth);
+    firebase.signOut(this.auth).then();
   }
 
 }

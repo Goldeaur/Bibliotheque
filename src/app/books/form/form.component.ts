@@ -33,7 +33,11 @@ export class FormComponent implements OnInit {
     const title = this.bookForm.get('title').value;
     const author = this.bookForm.get('author').value;
     const category = this.bookForm.get('category').value;
-    const newBook = new Book(title,author,category,null, null, null);
+    const newBook = new Book(null,
+      null, null,
+      null,
+      title, author,
+      null, null, category, null, null, null, null, null);
     this.booksService.createNewBook(newBook);
     this.router.navigate(['/books']).then();
   }
