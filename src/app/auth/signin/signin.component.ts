@@ -30,14 +30,7 @@ export class SigninComponent implements OnInit {
   onSubmit() {
     const email = this.signInForm.get('email').value;
     const password = this.signInForm.get('password').value;
-    this.authService.signin(email, password).then(
-      () => {
-        this.router.navigate(['/books']).then();
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
-    );
+    this.authService.signin(email, password);
   }
 
 }
